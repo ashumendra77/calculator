@@ -9,7 +9,7 @@ class ButtonController extends GetxController {
 
   buttonTap(String btnSymbol) {
     if (btnSymbol == 'C') {
-      ans.value = '';
+      ans.value = '0';
       equation.value = '0';
     } else if (btnSymbol == '=') {
       expression.value = equation.value;
@@ -23,7 +23,6 @@ class ButtonController extends GetxController {
       }
     } else if (equation.value.length >= 20) {
       Get.snackbar('hi', 'Maximum digit(20) reached');
-      // Get.dialog(Center(child:Text('Maximum digit(20) reached')));
     } else {
       if (equation.value =='0') {
         equation.value = btnSymbol;

@@ -56,17 +56,32 @@ class CalculatorPage extends GetWidget<ButtonController> {
                 return Expanded(
                   // flex: 2,
                   child: Container(
-                    alignment: Alignment.centerRight,
-                    color: Colors.white,
-                    // height: Get.height * 0.15,
-                    child: _.ans.value.isBlank
-                        ? Text(_.equation.value.toString(),
-                            style: TextStyle(
-                                fontSize: 40, fontWeight: FontWeight.bold))
-                        : Text(_.ans.value.toString(),
-                            style: TextStyle(
-                                fontSize: 40, fontWeight: FontWeight.bold)),
-                  ),
+                      padding: EdgeInsets.only(bottom: 10),
+                      alignment: Alignment.bottomRight,
+                      color: Colors.white,
+                      // height: Get.height * 0.15,
+                      // child: _.ans.value.isBlank
+                      //     ? Text(_.equation.value.toString(),
+                      //         style: TextStyle(
+                      //             fontSize: 40,
+                      //             //  fontWeight: FontWeight.bold
+                      //              ))
+                      //     : Text(_.ans.value.toString(),
+                      //         style: TextStyle(
+                      //             fontSize: 40,
+                      //             //  fontWeight: FontWeight.bold
+                      //             )),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(_.equation.value.toString(),
+                              style: TextStyle(fontSize: 20)),
+                          // _.ans.value.isBlank ??
+                              Text(_.ans.value.toString(),
+                                  style: TextStyle(fontSize: 25))
+                        ],
+                      )),
                 );
               }),
           // Expanded(child: Divider()),
@@ -112,10 +127,10 @@ class CalculatorPage extends GetWidget<ButtonController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(child: buttonWidget('C')),
-                    Expanded(child: buttonWidget('=')),
-                    // buttonWidget(),
-                    // buttonWidget(),
+                    buttonWidget('C'),
+                    buttonWidget('='),
+                    buttonWidget('%'),
+                    buttonWidget('<='),
                   ],
                 ),
               ],

@@ -8,9 +8,7 @@ class CalculatorPage extends GetWidget<ButtonController> {
     return Container(
       margin: EdgeInsets.only(top: 10, bottom: 5),
       decoration: BoxDecoration(
-          // border: Border.all(),
           shape: BoxShape.circle,
-          // borderRadius: BorderRadius.circular(35),
           gradient: LinearGradient(
               begin: Alignment(-1.0, -4.0),
               end: Alignment(1.0, 4.0),
@@ -28,8 +26,9 @@ class CalculatorPage extends GetWidget<ButtonController> {
                 spreadRadius: 1.0),
           ]),
       child: MaterialButton(
-        padding: EdgeInsets.all(10),
-        // minWidth: Get.width * 0.244,
+        splashColor: Colors.transparent,
+        autofocus: false,
+        padding: EdgeInsets.all(15),
         onPressed: () => btn.buttonTap(btname),
         child: Text(btname,
             maxLines: 1,
@@ -54,65 +53,63 @@ class CalculatorPage extends GetWidget<ButtonController> {
               init: btn,
               builder: (_) {
                 return Expanded(
-                  // flex: 2,
                   child: Container(
-                      padding: EdgeInsets.only(bottom: 10),
+                      padding: EdgeInsets.only(bottom: 15),
                       alignment: Alignment.bottomRight,
                       color: Colors.white,
-                      // height: Get.height * 0.15,
-                      // child: _.ans.value.isBlank
-                      //     ? Text(_.equation.value.toString(),
-                      //         style: TextStyle(
-                      //             fontSize: 40,
-                      //             //  fontWeight: FontWeight.bold
-                      //              ))
-                      //     : Text(_.ans.value.toString(),
-                      //         style: TextStyle(
-                      //             fontSize: 40,
-                      //             //  fontWeight: FontWeight.bold
-                      //             )),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(_.equation.value.toString(),
-                              style: TextStyle(fontSize: 20)),
-                          // _.ans.value.isBlank ??
-                              Text(_.ans.value.toString(),
-                                  style: TextStyle(fontSize: 25))
+                              style: TextStyle(fontSize: 30)),
+                          Text(_.ans.value.toString(),
+                          maxLines: 2,
+                          softWrap: true,
+                          // overflow: TextOverflow.fade,
+                              style: TextStyle(fontSize: 30))
                         ],
                       )),
                 );
               }),
-          // Expanded(child: Divider()),
-          Expanded(
+          Padding(
+            padding: EdgeInsets.only(bottom: 8.0, top: 10),
             child: Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    buttonWidget('9'),
-                    buttonWidget('8'),
-                    buttonWidget('7'),
+                    buttonWidget('C'),
+                    buttonWidget('⌫'),
+                    buttonWidget('%'),
                     buttonWidget('/'),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    buttonWidget('6'),
-                    buttonWidget('5'),
-                    buttonWidget('4'),
+                    buttonWidget('7'),
+                    buttonWidget('8'),
+                    buttonWidget('9'),
                     buttonWidget('*'),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    buttonWidget('3'),
-                    buttonWidget('2'),
-                    buttonWidget('1'),
+                    buttonWidget('4'),
+                    buttonWidget('5'),
+                    buttonWidget('6'),
                     buttonWidget('+'),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    buttonWidget('1'),
+                    buttonWidget('2'),
+                    buttonWidget('3'),
+                    buttonWidget('-'),
                   ],
                 ),
                 Row(
@@ -121,16 +118,7 @@ class CalculatorPage extends GetWidget<ButtonController> {
                     buttonWidget('00'),
                     buttonWidget('0'),
                     buttonWidget('.'),
-                    buttonWidget('-'),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    buttonWidget('C'),
                     buttonWidget('='),
-                    buttonWidget('%'),
-                    buttonWidget('<='),
                   ],
                 ),
               ],
